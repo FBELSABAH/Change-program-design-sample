@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CHANGE Program - Week 1 Module Mockup</title>
+  <style>
+    :root {
+      --bg: #f5f7f8;
+      --card: #ffffff;
+      --text: #1f2933;
+      --muted: #5f6c7b;
+      --accent: #2f7d6d;
+      --accent-light: #e5f3ef;
+      --border: #d9e2ec;
+      --warning: #fff7df;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #2f7d6d, #3f9f8c);
+      color: white;
+      padding: 48px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0 0 12px;
+      font-size: 2.2rem;
+    }
+
+    header p {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: 32px auto;
+      padding: 0 20px 48px;
+    }
+
+    .module-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .info-card,
+    section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+    }
+
+    .info-card {
+      padding: 18px;
+    }
+
+    .info-card strong {
+      display: block;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    section {
+      padding: 26px;
+      margin-bottom: 22px;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: var(--accent);
+      font-size: 1.45rem;
+    }
+
+    h3 {
+      margin-bottom: 8px;
+      color: #243b53;
+    }
+
+    ul,
+    ol {
+      padding-left: 24px;
+    }
+
+    .objectives li,
+    .checklist li {
+      margin-bottom: 8px;
+    }
+
+    .lesson-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .lesson-card {
+      background: #fbfdff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+    }
+
+    .highlight {
+      background: var(--accent-light);
+      border-left: 5px solid var(--accent);
+      padding: 16px;
+      border-radius: 10px;
+      margin-top: 18px;
+    }
+
+    .checklist {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .checklist li {
+      background: #fbfdff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+    }
+
+    .quiz-question {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 16px;
+      background: #fbfdff;
+    }
+
+    .quiz-question p {
+      font-weight: bold;
+      margin-top: 0;
+    }
+
+    label {
+      display: block;
+      margin: 8px 0;
+      cursor: pointer;
+    }
+
+    .note {
+      background: var(--warning);
+      border: 1px solid #f3d27a;
+      padding: 16px;
+      border-radius: 12px;
+      color: #5c4300;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 11px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .btn.secondary {
+      background: #52606d;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      padding: 24px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.7rem;
+      }
+
+      section {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CHANGE Program: Week 1 Module</h1>
+    <p>A sample online-learning module mockup showing how print-based wellness materials can be converted into a structured, accessible, and user-friendly digital course experience.</p>
+  </header>
+
+  <main class="container">
+    <div class="module-info">
+      <div class="info-card">
+        <strong>Module</strong>
+        Week 1: Healthy Lifestyle Foundations
+      </div>
+      <div class="info-card">
+        <strong>Audience</strong>
+        CHANGE Program participants
+      </div>
+      <div class="info-card">
+        <strong>Estimated Time</strong>
+        20–30 minutes
+      </div>
+      <div class="info-card">
+        <strong>Format</strong>
+        Lesson, checklist, reflection, and quiz
+      </div>
+    </div>
+
+    <section>
+      <h2>Welcome</h2>
+      <p>Welcome to Week 1 of the CHANGE Program. This module introduces simple, realistic habits that support long-term health. The goal is not perfection. The goal is to begin with small, repeatable actions that can fit into everyday life.</p>
+      <div class="highlight">
+        <strong>This sample is a course-design mockup.</strong> It demonstrates layout, organization, participant instructions, and interactive learning structure for an online Moodle-style course.
+      </div>
+    </section>
+
+    <section>
+      <h2>Learning Objectives</h2>
+      <ul class="objectives">
+        <li>Understand the purpose of building small, sustainable health habits.</li>
+        <li>Identify basic nutrition and physical activity goals for the week.</li>
+        <li>Use a simple checklist to track progress.</li>
+        <li>Complete a short knowledge check to review key ideas.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Lesson Content</h2>
+      <div class="lesson-grid">
+        <div class="lesson-card">
+          <h3>1. Start Small</h3>
+          <p>Healthy change is easier to maintain when it begins with manageable steps. Instead of trying to change everything at once, choose one or two habits that can be repeated consistently.</p>
+        </div>
+        <div class="lesson-card">
+          <h3>2. Nutrition Basics</h3>
+          <p>A balanced plate can include vegetables, fruit, whole grains, and protein. Small changes, such as adding one extra serving of vegetables or planning meals ahead, can support long-term progress.</p>
+        </div>
+        <div class="lesson-card">
+          <h3>3. Physical Activity Basics</h3>
+          <p>Movement does not have to be intense to be useful. Walking, stretching, or light exercise can help build routine and confidence, especially when done regularly.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Weekly Checklist</h2>
+      <p>Participants can use this checklist to track simple actions during Week 1.</p>
+      <ul class="checklist">
+        <li><input type="checkbox" /> Drink water regularly throughout the day.</li>
+        <li><input type="checkbox" /> Add one extra fruit or vegetable serving to a meal.</li>
+        <li><input type="checkbox" /> Complete at least one 20-minute walk or movement session.</li>
+        <li><input type="checkbox" /> Write down one realistic goal for next week.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Reflection Prompt</h2>
+      <p>Before moving on, participants can reflect on the following question:</p>
+      <div class="note">
+        What is one small health habit you feel confident you can repeat this week?
+      </div>
+    </section>
+
+    <section>
+      <h2>Mini Quiz</h2>
+      <div class="quiz-question">
+        <p>1. What is the main goal of Week 1?</p>
+        <label><input type="radio" name="q1" /> To make every health change immediately</label>
+        <label><input type="radio" name="q1" /> To begin with small, sustainable habits</label>
+        <label><input type="radio" name="q1" /> To avoid all carbohydrates</label>
+      </div>
+
+      <div class="quiz-question">
+        <p>2. Which example best supports a balanced plate?</p>
+        <label><input type="radio" name="q2" /> Vegetables, whole grains, and protein</label>
+        <label><input type="radio" name="q2" /> Only coffee and snacks</label>
+        <label><input type="radio" name="q2" /> Skipping meals every day</label>
+      </div>
+
+      <div class="quiz-question">
+        <p>3. Which activity is a realistic starting point?</p>
+        <label><input type="radio" name="q3" /> A short walk or light movement session</label>
+        <label><input type="radio" name="q3" /> No movement at all</label>
+        <label><input type="radio" name="q3" /> Exercising intensely every day with no rest</label>
+      </div>
+    </section>
+
+    <section>
+      <h2>Participant Instructions</h2>
+      <ol>
+        <li>Read the Week 1 lesson content.</li>
+        <li>Complete the weekly checklist throughout the week.</li>
+        <li>Answer the reflection prompt.</li>
+        <li>Complete the mini quiz before moving to the next module.</li>
+      </ol>
+      <div class="button-row">
+        <a href="#" class="btn">Mark as Complete</a>
+        <a href="#" class="btn secondary">Download Weekly Handout</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Design Notes</h2>
+      <p>This mockup uses clear headings, short sections, accessible language, checklist-style progress tracking, and a simple quiz format. These elements are intended to support participants who may be accessing program materials independently online.</p>
+    </section>
+  </main>
+
+  <footer>
+    Sample project by Faris Elsabah | Student Assistant - Online Learning Application | UPEI
+  </footer>
+</body>
+</html>
