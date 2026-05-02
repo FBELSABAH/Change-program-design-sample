@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CHANGE Program - Week 1 Module Mockup</title>
+  <title>CHANGE Program Moodle Mockup</title>
   <style>
     :root {
-      --bg: #f5f7f8;
-      --card: #ffffff;
-      --text: #1f2933;
-      --muted: #5f6c7b;
-      --accent: #2f7d6d;
-      --accent-light: #e5f3ef;
-      --border: #d9e2ec;
-      --warning: #fff7df;
+      --bg: #eef2f5;
+      --panel: #ffffff;
+      --line: #d8dde6;
+      --text: #20262f;
+      --muted: #6c7480;
+      --brand: #a40c25;
+      --brand-dark: #7f101e;
+      --brand-soft: #f8eaee;
+      --gold: #f3c76b;
+      --shadow: 0 24px 48px rgba(31, 41, 55, 0.12);
+      --radius: 28px;
     }
 
     * {
@@ -22,314 +25,583 @@
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
+      min-height: 100vh;
+      font-family: "Segoe UI", Arial, sans-serif;
       color: var(--text);
-      line-height: 1.6;
+      background:
+        radial-gradient(circle at top left, rgba(164, 12, 37, 0.08), transparent 24%),
+        linear-gradient(180deg, #f7f8fa 0%, #edf1f5 100%);
     }
 
-    header {
-      background: linear-gradient(135deg, #2f7d6d, #3f9f8c);
-      color: white;
-      padding: 48px 20px;
-      text-align: center;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    header h1 {
-      margin: 0 0 12px;
-      font-size: 2.2rem;
+    .shell {
+      width: min(1400px, calc(100vw - 28px));
+      margin: 14px auto;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(163, 172, 184, 0.45);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(14px);
     }
 
-    header p {
-      max-width: 760px;
-      margin: 0 auto;
-      font-size: 1.05rem;
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 0 26px;
+      min-height: 108px;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--line);
     }
 
-    .container {
-      max-width: 1050px;
-      margin: 32px auto;
-      padding: 0 20px 48px;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      min-width: 0;
     }
 
-    .module-info {
+    .crest {
+      position: relative;
+      width: 56px;
+      height: 78px;
+      border-radius: 14px 14px 18px 18px;
+      background:
+        linear-gradient(90deg, #8c2a16 0 50%, #d3a236 50% 100%);
+      overflow: hidden;
+      flex: 0 0 auto;
+    }
+
+    .crest::before,
+    .crest::after {
+      content: "";
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      border-radius: 99px;
+    }
+
+    .crest::before {
+      top: 34px;
+      height: 18px;
+      background: #ffffff;
+    }
+
+    .crest::after {
+      bottom: 8px;
+      height: 18px;
+      background: #6b8c2b;
+      border-radius: 0 0 20px 20px;
+    }
+
+    .brand-copy {
+      line-height: 0.88;
+      color: #8c2a16;
+      flex: 0 1 auto;
+    }
+
+    .brand-copy .small {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 22px;
+    }
+
+    .brand-copy .large {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(28px, 3vw, 34px);
+      letter-spacing: -0.04em;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      font-size: 23px;
+      white-space: nowrap;
+    }
+
+    .main-nav a {
+      position: relative;
+      padding: 10px 0;
+    }
+
+    .main-nav a.active {
+      color: var(--brand-dark);
+      font-weight: 600;
+    }
+
+    .main-nav a.active::after {
+      content: "";
+      position: absolute;
+      left: -6px;
+      right: -6px;
+      bottom: -22px;
+      height: 4px;
+      border-radius: 999px;
+      background: var(--brand);
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: #656566;
+      font-size: 18px;
+      white-space: nowrap;
+    }
+
+    .icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      place-items: center;
+    }
+
+    .avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #eef2f7;
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+      color: #3c4656;
+    }
+
+    .page {
+      padding: 62px clamp(20px, 5vw, 110px) 72px;
+    }
+
+    .page h1 {
+      margin: 0;
+      font-size: clamp(2.6rem, 4.8vw, 4rem);
+      letter-spacing: -0.04em;
+    }
+
+    .page h2 {
+      margin: 18px 0 34px;
+      font-size: clamp(1.9rem, 3vw, 2.6rem);
+      letter-spacing: -0.04em;
+    }
+
+    .intro {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 30px;
+    }
+
+    .intro p {
+      margin: 14px 0 0;
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(120px, 1fr));
+      gap: 12px;
+      width: min(360px, 100%);
+    }
+
+    .hero-card {
+      padding: 18px;
+      background: linear-gradient(180deg, #fff 0%, #faf8f7 100%);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+    }
+
+    .hero-card strong {
+      display: block;
+      font-size: 1.6rem;
+      color: var(--brand-dark);
+    }
+
+    .hero-card span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .overview-tools {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
       margin-bottom: 28px;
     }
 
-    .info-card,
-    section {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+    .tool-card {
+      padding: 20px 22px;
+      background: linear-gradient(180deg, #fff 0%, #fbfbfc 100%);
+      border: 1px solid var(--line);
+      border-radius: 20px;
     }
 
-    .info-card {
-      padding: 18px;
-    }
-
-    .info-card strong {
+    .tool-label {
       display: block;
-      color: var(--accent);
-      margin-bottom: 6px;
-    }
-
-    section {
-      padding: 26px;
-      margin-bottom: 22px;
-    }
-
-    h2 {
-      margin-top: 0;
-      color: var(--accent);
-      font-size: 1.45rem;
-    }
-
-    h3 {
       margin-bottom: 8px;
-      color: #243b53;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
-    ul,
-    ol {
-      padding-left: 24px;
+    .tool-value {
+      display: block;
+      font-size: 1.18rem;
+      font-weight: 600;
+      color: var(--brand-dark);
+      line-height: 1.4;
     }
 
-    .objectives li,
-    .checklist li {
-      margin-bottom: 8px;
-    }
-
-    .lesson-grid {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
+      grid-template-columns: minmax(0, 760px);
+      gap: 24px;
     }
 
-    .lesson-card {
-      background: #fbfdff;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 18px;
+    .course-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 450px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
     }
 
-    .highlight {
-      background: var(--accent-light);
-      border-left: 5px solid var(--accent);
-      padding: 16px;
-      border-radius: 10px;
-      margin-top: 18px;
+    .course-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(31, 41, 55, 0.12);
+      border-color: #bfc7d3;
     }
 
-    .checklist {
-      list-style: none;
-      padding-left: 0;
+    .course-card.featured {
+      position: relative;
     }
 
-    .checklist li {
-      background: #fbfdff;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 12px 14px;
-      margin-bottom: 10px;
+    .card-cover {
+      height: 196px;
+      background-size: cover;
+      background-position: center;
+      border-bottom: 1px solid var(--line);
     }
 
-    .quiz-question {
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 18px;
-      margin-bottom: 16px;
-      background: #fbfdff;
+    .course-card.featured .card-cover {
+      background-image: url("./assets/change-course-banner.svg");
     }
 
-    .quiz-question p {
-      font-weight: bold;
-      margin-top: 0;
+    .card-body {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 20px 24px 18px;
     }
 
-    label {
-      display: block;
-      margin: 8px 0;
-      cursor: pointer;
+    .starred {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--brand);
+      font-size: 1.1rem;
+      line-height: 1.4;
     }
 
-    .note {
-      background: var(--warning);
-      border: 1px solid #f3d27a;
-      padding: 16px;
-      border-radius: 12px;
-      color: #5c4300;
+    .star {
+      margin-top: 4px;
+      width: 22px;
+      height: 22px;
+      background: var(--brand);
+      clip-path: polygon(50% 0%, 61% 36%, 100% 36%, 68% 58%, 80% 100%, 50% 73%, 20% 100%, 32% 58%, 0% 36%, 39% 36%);
+      flex: 0 0 auto;
     }
 
-    .button-row {
+    .term {
+      margin-top: 10px;
+      font-size: 1.15rem;
+    }
+
+    .featured-pill {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      z-index: 1;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--brand-dark);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      box-shadow: 0 10px 20px rgba(31, 41, 55, 0.1);
+    }
+
+    .summary {
+      margin: 16px 0 auto;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .card-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
       margin-top: 18px;
     }
 
-    .btn {
-      display: inline-block;
-      background: var(--accent);
-      color: white;
-      padding: 11px 16px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
+    .card-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 16px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: #3a4657;
+      font-weight: 600;
     }
 
-    .btn.secondary {
-      background: #52606d;
+    .card-button.primary {
+      background: var(--brand);
+      border-color: var(--brand);
+      color: #fff;
     }
 
-    footer {
-      text-align: center;
+    .card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 28px;
       color: var(--muted);
-      font-size: 0.9rem;
-      padding: 24px;
+      font-size: 1rem;
     }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.7rem;
+    .progress {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      max-width: 280px;
+    }
+
+    .progress-bar {
+      flex: 1;
+      height: 10px;
+      background: #e6ebf2;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #d15f59, #ae1933);
+    }
+
+    .dots {
+      width: 10px;
+      height: 30px;
+      display: grid;
+      gap: 4px;
+      place-items: center;
+    }
+
+    .dots::before,
+    .dots::after,
+    .dots span {
+      content: "";
+      width: 5px;
+      height: 5px;
+      background: #222;
+      border-radius: 50%;
+      display: block;
+    }
+
+    .helper {
+      position: fixed;
+      right: 28px;
+      bottom: 28px;
+      width: 64px;
+      height: 64px;
+      border: none;
+      border-radius: 50%;
+      background: #d7dee7;
+      color: #1b2430;
+      font-size: 2rem;
+      box-shadow: 0 14px 28px rgba(31, 41, 55, 0.12);
+    }
+
+    @media (max-width: 1100px) {
+      .topbar {
+        flex-wrap: wrap;
+        padding-top: 20px;
+        padding-bottom: 20px;
       }
 
-      section {
-        padding: 20px;
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .shell {
+        width: calc(100vw - 12px);
+        margin: 6px auto;
+        border-radius: 22px;
+      }
+
+      .topbar,
+      .intro {
+        display: block;
+      }
+
+      .main-nav,
+      .toolbar {
+        margin-top: 18px;
+      }
+
+      .main-nav {
+        gap: 18px;
+        font-size: 1.2rem;
+        flex-wrap: wrap;
+      }
+
+      .main-nav a.active::after {
+        bottom: -10px;
+      }
+
+      .hero-stats {
+        margin-top: 18px;
+        grid-template-columns: 1fr;
+      }
+
+      .overview-tools {
+        grid-template-columns: 1fr;
+      }
+
+      .page {
+        padding: 42px 18px 60px;
+      }
+
+      .course-card {
+        min-height: 420px;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>CHANGE Program: Week 1 Module</h1>
-    <p>A sample online-learning module mockup showing how print-based wellness materials can be converted into a structured, accessible, and user-friendly digital course experience.</p>
-  </header>
-
-  <main class="container">
-    <div class="module-info">
-      <div class="info-card">
-        <strong>Module</strong>
-        Week 1: Healthy Lifestyle Foundations
-      </div>
-      <div class="info-card">
-        <strong>Audience</strong>
-        CHANGE Program participants
-      </div>
-      <div class="info-card">
-        <strong>Estimated Time</strong>
-        20–30 minutes
-      </div>
-      <div class="info-card">
-        <strong>Format</strong>
-        Lesson, checklist, reflection, and quiz
-      </div>
-    </div>
-
-    <section>
-      <h2>Welcome</h2>
-      <p>Welcome to Week 1 of the CHANGE Program. This module introduces simple, realistic habits that support long-term health. The goal is not perfection. The goal is to begin with small, repeatable actions that can fit into everyday life.</p>
-      <div class="highlight">
-        <strong>This sample is a course-design mockup.</strong> It demonstrates layout, organization, participant instructions, and interactive learning structure for an online Moodle-style course.
-      </div>
-    </section>
-
-    <section>
-      <h2>Learning Objectives</h2>
-      <ul class="objectives">
-        <li>Understand the purpose of building small, sustainable health habits.</li>
-        <li>Identify basic nutrition and physical activity goals for the week.</li>
-        <li>Use a simple checklist to track progress.</li>
-        <li>Complete a short knowledge check to review key ideas.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Lesson Content</h2>
-      <div class="lesson-grid">
-        <div class="lesson-card">
-          <h3>1. Start Small</h3>
-          <p>Healthy change is easier to maintain when it begins with manageable steps. Instead of trying to change everything at once, choose one or two habits that can be repeated consistently.</p>
-        </div>
-        <div class="lesson-card">
-          <h3>2. Nutrition Basics</h3>
-          <p>A balanced plate can include vegetables, fruit, whole grains, and protein. Small changes, such as adding one extra serving of vegetables or planning meals ahead, can support long-term progress.</p>
-        </div>
-        <div class="lesson-card">
-          <h3>3. Physical Activity Basics</h3>
-          <p>Movement does not have to be intense to be useful. Walking, stretching, or light exercise can help build routine and confidence, especially when done regularly.</p>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="crest" aria-hidden="true"></div>
+        <div class="brand-copy" aria-label="University of Prince Edward Island">
+          <span class="small">UNIVERSITY</span>
+          <span class="small">of Prince Edward</span>
+          <span class="large">ISLAND</span>
         </div>
       </div>
-    </section>
 
-    <section>
-      <h2>Weekly Checklist</h2>
-      <p>Participants can use this checklist to track simple actions during Week 1.</p>
-      <ul class="checklist">
-        <li><input type="checkbox" /> Drink water regularly throughout the day.</li>
-        <li><input type="checkbox" /> Add one extra fruit or vegetable serving to a meal.</li>
-        <li><input type="checkbox" /> Complete at least one 20-minute walk or movement session.</li>
-        <li><input type="checkbox" /> Write down one realistic goal for next week.</li>
-      </ul>
-    </section>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#">Home</a>
+        <a href="#">Dashboard</a>
+        <a href="#" class="active">More</a>
+      </nav>
 
-    <section>
-      <h2>Reflection Prompt</h2>
-      <p>Before moving on, participants can reflect on the following question:</p>
-      <div class="note">
-        What is one small health habit you feel confident you can repeat this week?
+      <div class="toolbar" aria-label="User menu">
+        <div class="icon" aria-hidden="true">🔔</div>
+        <div class="icon" aria-hidden="true">💬</div>
+        <div class="avatar">FE</div>
+        <div aria-hidden="true">⌄</div>
       </div>
-    </section>
+    </header>
 
-    <section>
-      <h2>Mini Quiz</h2>
-      <div class="quiz-question">
-        <p>1. What is the main goal of Week 1?</p>
-        <label><input type="radio" name="q1" /> To make every health change immediately</label>
-        <label><input type="radio" name="q1" /> To begin with small, sustainable habits</label>
-        <label><input type="radio" name="q1" /> To avoid all carbohydrates</label>
-      </div>
+    <main class="page">
+      <section class="intro">
+        <div>
+          <h1>My courses</h1>
+          <h2>Course overview</h2>
+          <p>
+            This mock dashboard is focused on one polished course experience for the CHANGE Program. It is designed to feel like a participant-friendly Moodle landing page that highlights clarity, accessibility, and strong organization rather than filler content.
+          </p>
+        </div>
 
-      <div class="quiz-question">
-        <p>2. Which example best supports a balanced plate?</p>
-        <label><input type="radio" name="q2" /> Vegetables, whole grains, and protein</label>
-        <label><input type="radio" name="q2" /> Only coffee and snacks</label>
-        <label><input type="radio" name="q2" /> Skipping meals every day</label>
-      </div>
+        <div class="hero-stats" aria-label="Overview statistics">
+          <div class="hero-card">
+            <strong>1</strong>
+            <span>Active course</span>
+          </div>
+          <div class="hero-card">
+            <strong>12</strong>
+            <span>Weeks planned</span>
+          </div>
+          <div class="hero-card">
+            <strong>92%</strong>
+            <span>Completion goal</span>
+          </div>
+        </div>
+      </section>
 
-      <div class="quiz-question">
-        <p>3. Which activity is a realistic starting point?</p>
-        <label><input type="radio" name="q3" /> A short walk or light movement session</label>
-        <label><input type="radio" name="q3" /> No movement at all</label>
-        <label><input type="radio" name="q3" /> Exercising intensely every day with no rest</label>
-      </div>
-    </section>
+      <section class="overview-tools" aria-label="Course overview highlights">
+        <article class="tool-card">
+          <span class="tool-label">Program</span>
+          <span class="tool-value">CHANGE Program Foundations</span>
+        </article>
+        <article class="tool-card">
+          <span class="tool-label">Designed For</span>
+          <span class="tool-value">UPEI Health and Wellness Centre participants</span>
+        </article>
+        <article class="tool-card">
+          <span class="tool-label">Experience Goal</span>
+          <span class="tool-value">Structured modules, clear resources, and low-friction weekly learning</span>
+        </article>
+      </section>
 
-    <section>
-      <h2>Participant Instructions</h2>
-      <ol>
-        <li>Read the Week 1 lesson content.</li>
-        <li>Complete the weekly checklist throughout the week.</li>
-        <li>Answer the reflection prompt.</li>
-        <li>Complete the mini quiz before moving to the next module.</li>
-      </ol>
-      <div class="button-row">
-        <a href="#" class="btn">Mark as Complete</a>
-        <a href="#" class="btn secondary">Download Weekly Handout</a>
-      </div>
-    </section>
+      <section class="grid">
+        <a class="course-card featured" href="course.html" data-name="CHANGE Program Foundations" data-category="featured wellness" data-progress="18">
+          <div class="featured-pill">Featured Course</div>
+          <div class="card-cover" role="img" aria-label="Illustrated cover for the CHANGE Program course"></div>
+          <div class="card-body">
+            <div class="starred">
+              <div class="star" aria-hidden="true"></div>
+              <div>2026S CHANGE Program Foundations (HWC-CHANGE-01)</div>
+            </div>
+            <div class="term">Summer 2026</div>
+            <p class="summary">
+              A focused Moodle-style sample built for the UPEI Health and Wellness Centre role. The course includes weekly lifestyle modules, practical resources, habit trackers, reflection prompts, and short knowledge checks that feel ready for participant use.
+            </p>
+            <div class="card-actions">
+              <span class="card-button primary">Open Course</span>
+              <span class="card-button">View Week 1</span>
+            </div>
+            <div class="card-meta">
+              <div class="progress">
+                <span>18% complete</span>
+                <div class="progress-bar" aria-hidden="true">
+                  <div class="progress-fill" style="width: 18%"></div>
+                </div>
+              </div>
+              <div class="dots"><span></span></div>
+            </div>
+          </div>
+        </a>
+      </section>
+    </main>
+  </div>
 
-    <section>
-      <h2>Design Notes</h2>
-      <p>This mockup uses clear headings, short sections, accessible language, checklist-style progress tracking, and a simple quiz format. These elements are intended to support participants who may be accessing program materials independently online.</p>
-    </section>
-  </main>
-
-  <footer>
-    Sample project by Faris Elsabah | Student Assistant - Online Learning Application | UPEI
-  </footer>
+  <button class="helper" aria-label="Help">?</button>
 </body>
 </html>
