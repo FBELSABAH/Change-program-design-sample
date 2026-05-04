@@ -6,7 +6,7 @@ This project was created as a portfolio/application sample for the UPEI Student 
 
 ## Live Demo
 
-https://github.com/FBELSABAH/Change-program-design-sample
+https://fbelsabah.github.io/Change-program-design-sample/
 
 ## Project Overview
 
