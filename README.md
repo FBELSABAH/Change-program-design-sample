@@ -1,4 +1,4 @@
-# CHANGE Program Moodle-Style Course Prototype
+# CHANGE Program design sample
 
 A Moodle-style online course prototype designed to show how print-based participant wellness materials can be converted into a structured, accessible, and user-friendly digital learning experience.
 
